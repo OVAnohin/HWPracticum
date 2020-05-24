@@ -10,7 +10,7 @@ public class DistanceTransition : Transition
 
   private void Start()
   {
-    _transitionRange += Random.Range(0, _rangeSpread);
+    _transitionRange += Random.Range(0.01f, _rangeSpread);
   }
 
   public override State TargetState
@@ -25,7 +25,7 @@ public class DistanceTransition : Transition
 
   private void Update()
   {
-    if (Vector2.Distance(transform.position, Target.transform.position) < _transitionRange)
+    if (Vector2.Distance(transform.position, Target.transform.position) <= _transitionRange)
     {
       NeedTransit = true;
       _targetState = (from value in TargetStates

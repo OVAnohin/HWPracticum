@@ -31,6 +31,4 @@ public class GuardAttack : State
   {
     _animator.Play("Idle");
   }
-
-
 }
