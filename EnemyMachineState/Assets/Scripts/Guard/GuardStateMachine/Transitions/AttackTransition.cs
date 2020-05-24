@@ -1,17 +1,13 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public class DistanceTransition : Transition
-{
-  [SerializeField] private float _transitionRange = 0.1f;
-  [SerializeField] private float _rangeSpread = 0.5f;
+[RequireComponent(typeof(GuardAttack))]
 
+public class AttackTransition : Transition
+{
   private State _targetState = null;
 
-  private void Start()
-  {
-    _transitionRange += Random.Range(0, _rangeSpread);
-  }
+  private float _elapsedTime = 0;
 
   public override State TargetState
   {
@@ -21,16 +17,19 @@ public class DistanceTransition : Transition
   private void OnEnable()
   {
     NeedTransit = false;
+    _elapsedTime = 0;
   }
 
   private void Update()
   {
-    if (Vector2.Distance(transform.position, Target.transform.position) < _transitionRange)
+    if (_elapsedTime > GetComponent<GuardAttack>().Dalay)
     {
       NeedTransit = true;
       _targetState = (from value in TargetStates
-                      where value is GuardAttack
+                      where value is GuardSearchTarget
                       select value).First();
     }
+
+    _elapsedTime += Time.deltaTime;
   }
 }
