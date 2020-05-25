@@ -1,19 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 
 public class Player : MonoBehaviour
 {
-  [SerializeField] private int _health;
-  [SerializeField] private List<Weapon> _weapons;
-  [SerializeField] private Transform _shootPoing;
+  [SerializeField] private int _health; //жизня
+  [SerializeField] private List<Weapon> _weapons; //коллекция нашего оружия
+  [SerializeField] private Transform _shootPoing; //точка откуда летят пули
 
-  public int Money { get; private set; }
+  public int Money { get; private set; } // наши деньги
 
-  private Weapon _currentWeapon;
-  private int _currentHealth;
+  private Weapon _currentWeapon; //текущее оружие
+  private int _currentHealth;    //тукущая жизня
   private Animator _animator;
 
   private void Start()
@@ -23,7 +22,15 @@ public class Player : MonoBehaviour
     _animator = GetComponent<Animator>();
   }
 
-  private void EnemyDying(int reward)
+  public void ApplyDamage(int damage)
+  {
+    _currentHealth -= damage;
+
+    if (_currentHealth <= 0)
+      Destroy(gameObject);
+  }
+
+  private void OnEnemyDyed(int reward) //событие получение денег от врага
   {
     Money += reward;
   }
