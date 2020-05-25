@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class DistanceTransition : Transition
 {
-  [SerializeField] private float _transitionRange = 0.1f;
-  [SerializeField] private float _rangeSpread = 0.5f;
+  [SerializeField] private float _transitionRange = 0.45f;
+  [SerializeField] private float _rangeSpread = 0.025f;
 
   private State _targetState = null;
 
   private void Start()
   {
-    _transitionRange += Random.Range(0.01f, _rangeSpread);
+    _transitionRange += Random.Range(-_rangeSpread, _rangeSpread);
   }
 
   public override State TargetState
