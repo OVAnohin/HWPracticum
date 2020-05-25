@@ -6,12 +6,15 @@ public class Enemy : MonoBehaviour
   [SerializeField] private int _health; //жизнь 
   [SerializeField] private int _reward; //бонус за победу над врагом
 
-  [SerializeField] private Player _target; //цель для нашего врага
+  private Player _target; //цель для нашего врага
 
-  public event UnityAction Dying; // событие которое говорит что этот объект умер.
-  public Player Target //свойство выдачи нашего врага, объект цель наша
+  public event UnityAction Dying;   // событие которое говорит что этот объект умер.
+  public int Reward => _reward;
+  public Player Target => _target;  //свойство выдачи нашего врага, объект цель наша
+
+  public void Init(Player player) //наш инит, что то типа замена конструктора
   {
-    get { return _target; }
+    _target = player;
   }
 
   public void TakeDamage(int damage) // тут принимаем урон
