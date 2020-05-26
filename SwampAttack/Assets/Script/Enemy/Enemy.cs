@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 
   private Player _target; //цель для нашего врага
 
-  public event UnityAction Dying;   // событие которое говорит что этот объект умер.
+  public event UnityAction<Enemy> Dying;  // событие которое говорит что этот объект умер.
   public int Reward => _reward;
   public Player Target => _target;  //свойство выдачи нашего врага, объект цель наша
 
@@ -23,8 +23,8 @@ public class Enemy : MonoBehaviour
 
     if (_health <= 0)
     {
+      Dying?.Invoke(this);
       Destroy(gameObject);
-      Dying.Invoke();
     }
   }
 }

@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
       Destroy(gameObject);
   }
 
-  private void OnEnemyDyed(int reward) //событие получение денег от врага
+  public void AddMoney(int reward) //событие получение денег от врага
   {
     Money += reward;
   }
