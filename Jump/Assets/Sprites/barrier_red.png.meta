@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 8d86815b9b0995d4c951a6ab4b73e6f4
+guid: f3235e03c9c1f7c419e377d7e7a7fc43
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: VolumeBar_0
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -41,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -94,31 +93,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: VolumeBar_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 28
-        width: 605
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a80928c3b2ba34047aa2327efbccf54e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4b324aa6ec710a3478c6dd1190fb8c06
+    spriteID: c5342e32847f33d4ca45d95be5cbbf74
     vertices: []
     indices: 
     edges: []

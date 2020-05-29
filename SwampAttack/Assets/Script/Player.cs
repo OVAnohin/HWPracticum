@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 
@@ -10,21 +12,25 @@ public class Player : MonoBehaviour
   [SerializeField] private Transform _shootPoing; //точка откуда летят пули
 
   public int Money { get; private set; } // наши деньги
+  public UnityAction<int, int> HealthChanged;
 
   private Weapon _currentWeapon; //текущее оружие
   private int _currentHealth;    //тукущая жизня
   private Animator _animator;
+  
 
   private void Start()
   {
     _currentWeapon = _weapons[0];
     _currentHealth = _health;
     _animator = GetComponent<Animator>();
+    HealthChanged(_currentHealth, _health);
   }
 
   public void ApplyDamage(int damage)
   {
     _currentHealth -= damage;
+    HealthChanged(_currentHealth, _health);
 
     if (_currentHealth <= 0)
       Destroy(gameObject);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,11 +14,13 @@ public class Spawner : MonoBehaviour
   private float _timeAfterLastSpawn;
   private int _spawned; // количество врагов которых спаунили в волне
 
+  public UnityAction<int, int> EnemySpawnChanged;
   public event UnityAction AllEnemySpawned; //событие говорит что враги в волне закончены
 
   private void Start()
   {
     SetWave(_currentWaveNumber);
+    EnemySpawnChanged(0, 1);
   }
 
   private void Update()
@@ -31,6 +34,7 @@ public class Spawner : MonoBehaviour
     {
       InstantiateEnemy();
       _spawned++;
+      EnemySpawnChanged(_spawned, _currentWave.Count);
       _timeAfterLastSpawn = 0;
     }
 
@@ -39,7 +43,7 @@ public class Spawner : MonoBehaviour
       if (_waves.Count > _currentWaveNumber + 1)
       {
         if (AllEnemySpawned != null)
-          AllEnemySpawned.Invoke(); //говорим миру что враги кончились в этой волне
+          AllEnemySpawned(); //говорим миру что враги кончились в этой волне
       }
 
       _currentWave = null;
@@ -55,6 +59,7 @@ public class Spawner : MonoBehaviour
 
   public void NextWave()
   {
+    EnemySpawnChanged(0, 1);
     SetWave(++_currentWaveNumber);
     _spawned = 0;
   }
