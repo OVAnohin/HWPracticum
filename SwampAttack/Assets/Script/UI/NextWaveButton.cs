@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class NextWaveButton : MonoBehaviour
 {
-  [SerializeField] private Spawner _spawner;
+  [SerializeField] private Spawner _spawner;  // наш спаунер, куда мы отдадим команду
   [SerializeField] private Button _nextWaveButton;
 
   private void OnEnable()
