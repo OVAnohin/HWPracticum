@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
   [SerializeField] private Transform _shootPoing; //точка откуда летят пули
 
   public int Money { get; private set; } // наши деньги
-  public UnityAction<int, int> HealthChanged; //событие изменения жизни
+  public event UnityAction<int, int> HealthChanged; //событие изменения жизни
 
   private Weapon _currentWeapon; //текущее оружие
   private int _currentHealth;    //тукущая жизня
@@ -47,5 +47,11 @@ public class Player : MonoBehaviour
     {
       _currentWeapon.Shoot(_shootPoing);
     }
+  }
+
+  public void BuyWeapon(Weapon weapon) // покупаем оружие из магазина
+  {
+    Money -= weapon.Price;
+    _weapons.Add(weapon);
   }
 }
