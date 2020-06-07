@@ -15,7 +15,7 @@ public abstract class Weapon : MonoBehaviour
   public string Label => _label;
   public int Price => _price;
   public Sprite Icon => _icon;
-  public bool IsBye => _isBuyed;
+  public bool IsBuy => _isBuyed;
 
   public abstract void Shoot(Transform shootPoint);
 

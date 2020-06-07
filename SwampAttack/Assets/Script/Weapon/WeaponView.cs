@@ -51,7 +51,7 @@ public class WeaponView : MonoBehaviour
   // пробуем его заблокировать
   private void TryLockItem()
   {
-    if (_weapon.IsBye)
+    if (_weapon.IsBuy)
       _sellButton.interactable = false; // выключаем нашу кнопку продажи
   }
 }

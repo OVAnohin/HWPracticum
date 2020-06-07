@@ -6,8 +6,8 @@ public class Shop : MonoBehaviour
 {
   [SerializeField] private List<Weapon> _weapons; // список нашего оружия 
   [SerializeField] private Player _player; // наш пользователь, для взаимодействия
-  [SerializeField] private WeaponView  _template; // наш шаблон отображение оружия
-  [SerializeField] private GameObject  _itemContainer; // место, куда мы генирируем оружие, тут будут наши товары
+  [SerializeField] private WeaponView  _template; // наш шаблон отображение оружия, prefab из оружия -> (weapon из scrollView)
+  [SerializeField] private GameObject  _itemContainer; // место, куда мы генирируем оружие, тут будут наши товары (content из scrollView)
 
   private void Start()
   {

@@ -13,11 +13,12 @@ public class Player : MonoBehaviour
 
   public int Money { get; private set; } // наши деньги
   public event UnityAction<int, int> HealthChanged; //событие изменения жизни
+  public event UnityAction<int> MoneyChanged; //событие изменения money
 
   private Weapon _currentWeapon; //текущее оружие
   private int _currentHealth;    //тукущая жизня
   private Animator _animator;
-  
+
 
   private void Start()
   {
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
   public void AddMoney(int reward) //событие получение денег от врага
   {
     Money += reward;
+    MoneyChanged?.Invoke(Money);
   }
 
   private void Update()
@@ -53,5 +55,6 @@ public class Player : MonoBehaviour
   {
     Money -= weapon.Price;
     _weapons.Add(weapon);
+    MoneyChanged?.Invoke(Money);
   }
 }
