@@ -51,7 +51,6 @@ public class Game : MonoBehaviour
     _gameOverScreen.Close();
     _wallGenerator.ResetPool();
     StartGame();
-
   }
 
   private void StartGame()

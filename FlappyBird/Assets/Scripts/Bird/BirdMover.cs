@@ -29,7 +29,8 @@ public class BirdMover : MonoBehaviour
 
   private void Update()
   {
-    if (Input.GetKeyDown(KeyCode.Space)) // на пробел вешаем скачек вверх
+    // if (Input.GetKeyDown(KeyCode.Space)) // на пробел вешаем скачек вверх
+    if (Input.GetMouseButtonDown(0)) // на пробел вешаем скачек вверх
     {
       _rigidbody2D.velocity = new Vector2(_speed, 0); // мы гасим скорость, что бы она не накапливалась
       transform.rotation = _maxRotation; // при нажатии на пробел мы задираем голову вверх по максимуму

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallGenerator : ObjectPool
 {
-  [SerializeField] private GameObject _template; // наш шаблон. префаб
+  [SerializeField] private GameObject _templatePrefab; // наш шаблон. префаб
   [SerializeField] private float _secondsBetweenSpawn; // время между spawn
   [SerializeField] private float _maxSpawnPositionY; // по Y мы делаем разброс
   [SerializeField] private float _minSpawnPositionY; // 
@@ -13,7 +13,7 @@ public class WallGenerator : ObjectPool
 
   private void Start()
   {
-    Initialize(_template); // создаем наш пул стен
+    Initialize(_templatePrefab); // создаем наш пул стен
   }
 
   private void Update()

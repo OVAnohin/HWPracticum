@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
   [SerializeField] private Bird _bird;
-  [SerializeField] private Text _text;
+  [SerializeField] private TMP_Text _text;
 
   private void OnEnable()
   {
