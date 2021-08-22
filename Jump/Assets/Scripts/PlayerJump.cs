@@ -8,6 +8,7 @@ public class PlayerJump : MonoBehaviour
   [SerializeField] private float _speed;
 
   //y=-x2+4x
+  
   private float _elapsedTime = 0;
   private float _endTimeJump;
   private int _lengthJump = 3;
